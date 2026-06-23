@@ -3,14 +3,15 @@ let musicOn=false;
 /* ENVELOPE OPEN */
 function openInvite(){
   document.getElementById("envelope-screen").style.opacity="0";
+
   setTimeout(()=>{
     document.getElementById("envelope-screen").style.display="none";
     document.getElementById("main-content").style.display="block";
-  },600);
 
-  startMusic();
-  startPetals();
-  revealOnScroll();
+    startPetals();        // 🌸 start animation
+    revealOnScroll();     // ✨ scroll effects
+    startMusic();         // 🎵 optional music auto-start
+  },600);
 }
 
 /* MUSIC */
