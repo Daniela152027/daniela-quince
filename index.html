@@ -3,119 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniela's Quince</title>
+<title>Daniela XV</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- CHERRY BLOSSOMS -->
+<div id="petals"></div>
+
+<!-- ENVELOPE SCREEN -->
 <div id="envelope-screen">
   <div class="envelope" onclick="openInvite()">
     <div class="seal">💗</div>
-    <p>Para familiares, amigos y amantes del matcha</p>
-    <h2>Haz clic para abrir</h2>
+    <h2>Para familiares, amigos y amantes del matcha</h2>
+    <p>Haz clic para abrir tu invitación</p>
   </div>
 </div>
 
+<!-- MUSIC BUTTON -->
+<div id="music-btn" onclick="toggleMusic()">🎵 Música</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b6a7.mp3" type="audio/mp3">
+</audio>
+
+<!-- MAIN CONTENT -->
 <div id="main-content">
 
-  <audio id="music" src="music.mp3"></audio>
-
-  <section class="hero">
+  <section class="hero reveal">
     <h1>Daniela's Quince</h1>
-    <p>Una noche para soñar, bailar y tomar matcha 💗</p>
+    <p>Una noche elegante… y ligeramente caótica 💗</p>
   </section>
 
-  <section class="countdown">
+  <section class="countdown reveal">
     <h2>Cuenta Regresiva</h2>
     <div id="timer"></div>
   </section>
 
-<section class="about">
-  <h2>Sobre Daniela</h2>
-  <p>
-    Daniela es una joven de 15 años llena de energía, sueños… y misterios inexplicables.
-  </p>
-  <p>
-    Algunos dicen que es humana. Otros dicen que es claramente un perro disfrazado.
-  </p>
-  <p>
-    La ciencia aún no ha llegado a una conclusión definitiva.
-  </p>
-</section>
+  <section class="story reveal">
+    <h2>La Historia de Daniela</h2>
 
-<section class="family reveal">
-  <h2>Familia</h2>
+    <p>
+      Daniela es una joven de 15 años con energía ilimitada, sueños grandes y una relación altamente sospechosa con el matcha.
+    </p>
 
-  <p>
-    Este evento es posible gracias a Ariella y Valentina, quienes han apoyado a Daniela en cada paso de su vida.
-  </p>
+    <p>
+      Algunos dicen que puede convertirse en perro en circunstancias misteriosas.
+    </p>
+  </section>
 
-  <p>
-    Especial agradecimiento a Amy, cuya cabeza ha sido tema de estudio científico debido a su tamaño extraordinario.
-  </p>
+  <section class="family reveal">
+    <h2>Familia</h2>
 
-  <p>
-    Los resultados de la investigación aún no han sido publicados.
-  </p>
-</section>
+    <p>
+      Ariella y Valentina hicieron posible este evento tan elegante.
+    </p>
 
-<section class="matcha">
-  <h2>⚠ Aviso Importante</h2>
-  <p>
-    Este evento es exclusivamente para amantes del matcha.
-  </p>
-  <p>
-    Si no te gusta el matcha… igual puedes entrar, pero serás juzgado silenciosamente.
-  </p>
-</section>
+    <p>
+      Amy, quien es famosa por tener una cabeza de tamaño legendario, sigue expandiendo su reputación en la historia de este evento.
+    </p>
+  </section>
 
-<section class="dresscode">
-  <h2>Código de Vestimenta</h2>
-  <p>
-    🤠 Vaquero Mexicano Elegante
-  </p>
-  <p>
-    Se recomienda: botas, sombrero, actitud dramática y energía de telenovela.
-  </p>
-</section>
+  <section class="gallery reveal">
+    <h2>Galería de Daniela</h2>
 
-<section class="travel">
-  <h2>Información de Viaje</h2>
-  <p>
-    Todos los vuelos serán cubiertos por Ariella…
-  </p>
-  <p>
-    (si le pides MUY bonito y prometes bailar toda la noche)
-  </p>
-</section>
+    <img src="images/daniela1.jpg">
+    <img src="images/daniela2.jpg">
+    <img src="images/daniela3.jpg">
+  </section>
 
-<section class="hotel">
-  <h2>Hotel Recomendado</h2>
-  <p>
-    Pathstone Corporation ofrece alojamiento de lujo con sillas extremadamente cómodas.
-  </p>
-  <p>
-    No preguntes por qué lo importante son las sillas, simplemente confía.
-  </p>
-</section>
+  <section class="travel reveal">
+    <h2>Información de Viaje</h2>
 
-<section class="parking">
-  <h2>Estacionamiento</h2>
-  <p>
-    El estacionamiento es limitado.
-  </p>
-  <p>
-    Si no encuentras lugar… el huerto cercano es una opción NO oficial.
-  </p>
-</section>
+    <p>
+      Los vuelos serán cubiertos por Ariella… si se le pide bonito 😌
+    </p>
 
-<section class="gift">
-  <h2>Regalos</h2>
-  <p>
-    Tu presencia es el mejor regalo 💗
-  </p>
-  <p>
-    Pero si insistes en dar algo material, pronto habrá un link mágico aquí.
-  </p>
-</section>
+    <p>
+      (no garantizado, depende del nivel de cariño aplicado en la solicitud)
+    </p>
+  </section>
+
+  <section class="dress reveal">
+    <h2>Código de Vestimenta</h2>
+    <p>🤠 Vaquero Mexicano Elegante</p>
+  </section>
+
+  <section class="matcha reveal">
+    <h2>⚠ Importante</h2>
+    <p>Evento exclusivo para amantes del matcha.</p>
+  </section>
+
+  <section class="gift reveal">
+    <h2>Regalos</h2>
+    <p>Tu presencia es el mejor regalo 💗</p>
+    <p>[Link de regalo próximamente]</p>
+  </section>
+
+  <footer>
+    <p onclick="secret()">Hecho con 💗 para Daniela</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
