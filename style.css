@@ -110,3 +110,33 @@ body {
   font-weight:bold;
   color:#d36aa5;
 }
+
+.venue-card{
+  background: linear-gradient(135deg, #fff, #ffe6f0);
+  border: 2px solid gold;
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.venue-card h3{
+  color:#d36aa5;
+  margin-bottom:10px;
+}
+
+.venue-card a{
+  color:#b30059;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.venue-card a:hover{
+  text-decoration:underline;
+}
+
+.parking-warning{
+  margin-top:10px;
+  color:#a1003d;
+  font-weight:bold;
+}
