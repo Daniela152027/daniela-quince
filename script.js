@@ -1,6 +1,3 @@
-let musicOn=false;
-
-/* ENVELOPE OPEN */
 function openInvite(){
   document.getElementById("envelope-screen").style.opacity="0";
 
@@ -8,81 +5,79 @@ function openInvite(){
     document.getElementById("envelope-screen").style.display="none";
     document.getElementById("main-content").style.display="block";
 
-    startPetals();        // 🌸 start animation
-    revealOnScroll();     // ✨ scroll effects
-    startMusic();         // 🎵 optional music auto-start
+    startPetals();
+    revealOnScroll();
+    startMusic();
+    startCountdown();
   },600);
 }
 
-/* MUSIC */
-function toggleMusic(){
-  const music = document.getElementById("music");
-
+/* 🎵 MUSIC */
+function startMusic(){
+  const music=document.getElementById("music");
   if(!music) return;
 
-  // try play safely
-  music.play().then(() => {
-    music.volume = 0.5;
-    musicOn = true;
-  }).catch((err) => {
-    console.log("Audio blocked until interaction:", err);
-  });
+  music.volume=0.5;
+  music.play().catch(()=>{});
+}
 
-  // toggle pause if already playing
-  if(musicOn){
-    music.pause();
-    musicOn = false;
+function toggleMusic(){
+  const music=document.getElementById("music");
+  if(!music) return;
+
+  if(music.paused){
+    music.play();
   } else {
-    musicOn = true;
+    music.pause();
   }
 }
 
-function fadeIn(audio){
-  let v=0;
-  let i=setInterval(()=>{
-    if(v<0.5){
-      v+=0.05;
-      audio.volume=v;
-    }else{
-      clearInterval(i);
-    }
-  },100);
-}
-
-/* PETALS INSANE */
+/* 🌸 PETALS */
 function startPetals(){
   setInterval(()=>{
     let p=document.createElement("div");
     p.className="petal";
-    p.innerHTML=["🌸","🌺","💮"][Math.floor(Math.random()*3)];
+    p.innerHTML="🌸";
     p.style.left=Math.random()*window.innerWidth+"px";
-    p.style.fontSize=(12+Math.random()*20)+"px";
-    p.style.animationDuration=(3+Math.random()*5)+"s";
+    p.style.animationDuration=(3+Math.random()*4)+"s";
     document.body.appendChild(p);
     setTimeout(()=>p.remove(),7000);
-  },120);
+  },200);
 }
 
-/* SCROLL REVEAL */
+/* ✨ SCROLL ANIMATION */
 function revealOnScroll(){
-  const el=document.querySelectorAll(".reveal");
-  const obs=new IntersectionObserver(e=>{
-    e.forEach(x=>{
-      if(x.isIntersecting)x.target.classList.add("show");
+  const els=document.querySelectorAll(".reveal");
+
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add("show");
+      }
     });
   });
-  el.forEach(e=>obs.observe(e));
+
+  els.forEach(el=>obs.observe(el));
 }
 
-/* EASTER EGG */
-function secretAmy(){
-  alert("🔬 INVESTIGACIÓN: Amy sigue siendo un fenómeno sin explicación científica.");
+/* ⏱ COUNTDOWN */
+function startCountdown(){
+  const targetDate=new Date("June 20, 2027 15:00:00").getTime();
+
+  setInterval(()=>{
+    const now=new Date().getTime();
+    const diff=targetDate-now;
+
+    const days=Math.floor(diff/(1000*60*60*24));
+
+    const timer=document.getElementById("timer");
+    if(timer){
+      timer.innerHTML=days + " días 💗";
+    }
+  },1000);
 }
 
-/* VIP SECRET MODE */
-document.addEventListener("keydown",(e)=>{
-  if(e.key==="d"){
-    document.body.style.filter="hue-rotate(200deg)";
-    alert("VIP MODE ACTIVATED 💎");
-  }
-});
+/* 😂 EASTER EGG */
+function secret(){
+  alert("Daniela te está observando 👀");
+}
