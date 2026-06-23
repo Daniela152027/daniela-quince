@@ -15,16 +15,24 @@ function openInvite(){
 
 /* MUSIC */
 function toggleMusic(){
-  const m=document.getElementById("music");
+  const music = document.getElementById("music");
 
-  if(!musicOn){
-    m.volume=0;
-    m.play();
-    fadeIn(m);
-    musicOn=true;
-  }else{
-    m.pause();
-    musicOn=false;
+  if(!music) return;
+
+  // try play safely
+  music.play().then(() => {
+    music.volume = 0.5;
+    musicOn = true;
+  }).catch((err) => {
+    console.log("Audio blocked until interaction:", err);
+  });
+
+  // toggle pause if already playing
+  if(musicOn){
+    music.pause();
+    musicOn = false;
+  } else {
+    musicOn = true;
   }
 }
 
