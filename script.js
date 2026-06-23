@@ -9,6 +9,7 @@ function openInvite(){
     revealOnScroll();
     startCountdown();
     startMusic();
+
   },600);
 }
 
@@ -23,8 +24,6 @@ function startMusic(){
 
 function toggleMusic(){
   const music=document.getElementById("music");
-  if(!music) return;
-
   if(music.paused){
     music.play();
   } else {
@@ -45,7 +44,7 @@ function startPetals(){
   },200);
 }
 
-/* ✨ SCROLL ANIMATION */
+/* ✨ SCROLL REVEAL */
 function revealOnScroll(){
   const els=document.querySelectorAll(".reveal");
 
@@ -62,31 +61,24 @@ function revealOnScroll(){
 
 /* ⏱ COUNTDOWN */
 function startCountdown(){
-  const targetDate = new Date("June 20, 2027 15:00:00").getTime();
+  const targetDate=new Date("June 20, 2027 15:00:00").getTime();
 
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
+  setInterval(()=>{
+    const now=new Date().getTime();
+    const diff=targetDate-now;
 
-    if (diff <= 0) {
-      document.getElementById("timer").innerHTML = "¡Hoy es el gran día! 💖";
-      return;
-    }
+    const days=Math.floor(diff/(1000*60*60*24));
+    const hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+    const seconds=Math.floor((diff%(1000*60))/1000);
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById("timer").innerHTML=
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-    const timer = document.getElementById("timer");
-    if (timer) {
-      timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-  }, 1000);
+  },1000);
 }
 
-/* 😂 EASTER EGG */
+/* 😂 SECRET */
 function secret(){
-  alert("Daniela te está observando 👀");
+  alert("⚠ Daniela te está observando... especialmente si no eres amante del matcha 👀💚");
 }
