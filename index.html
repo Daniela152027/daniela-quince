@@ -3,59 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniela XV — Insane Mode</title>
+<title>Daniela XV</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- PETALS LAYERS -->
+<!-- 🌸 PETALS -->
 <div id="petals"></div>
 
-<!-- ENVELOPE -->
+<!-- 💌 ENVELOPE -->
 <div id="envelope-screen">
   <div class="envelope" onclick="openInvite()">
-    <div class="seal">💗</div>
-    <h2>Invitación Exclusiva</h2>
-    <p>Haz clic para revelar la experiencia</p>
+    <h2>Friends, Family & Matcha Lovers</h2>
+    <p>💌 Click to open invitation</p>
   </div>
 </div>
 
-<!-- MUSIC -->
-<div id="music-btn" onclick="toggleMusic()">🎵 Música</div>
+<!-- 🎵 MUSIC -->
+<div id="music-btn" onclick="toggleMusic()">🎵 Music</div>
 
 <audio id="music" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b6a7.mp3">
+  <source src="song.mp3" type="audio/mp3">
 </audio>
 
-<!-- MAIN -->
+<!-- 💖 MAIN CONTENT -->
 <div id="main-content">
 
-  <section class="chapter reveal">
-    <h1>CAPÍTULO I — Daniela</h1>
-    <p>Una figura legendaria, mitad humana, mitad misterio, completamente matcha.</p>
+  <!-- HERO -->
+  <section class="hero reveal">
+    <h1>Daniela’s Quince</h1>
+    <p>Elegant. Pink. Slightly unhinged.</p>
   </section>
 
-  <section class="chapter reveal" onclick="secretAmy()">
-    <h1>CAPÍTULO II — Familia</h1>
-    <p>Ariella y Valentina: guardianas del evento.</p>
-    <p>Amy: entidad clasificada con cabeza de nivel legendario.</p>
+  <!-- ⏱ COUNTDOWN -->
+  <section class="countdown reveal">
+    <h2>Countdown</h2>
+    <div id="timer"></div>
   </section>
 
-  <section class="chapter reveal">
-    <h1>CAPÍTULO III — Viaje</h1>
-    <p>Los vuelos pueden ser cubiertos bajo condiciones de simpatía extrema.</p>
+  <!-- 📸 GALLERY -->
+  <section class="gallery reveal">
+    <h2>Gallery</h2>
+    <img src="images/daniela1.jpg">
+    <img src="images/daniela2.jpg">
+    <img src="images/daniela3.jpg">
   </section>
 
-  <section class="chapter reveal">
-    <h1>CAPÍTULO IV — Código</h1>
-    <p>🤠 Vaquero Mexicano Elegante</p>
+  <!-- 😂 STORY / FUNNY SECTION -->
+  <section class="story reveal">
+    <h2>About Daniela</h2>
+    <p>
+      Daniela is a 15-year-old girl with elite chaotic energy and a legally suspicious addiction to matcha.
+    </p>
+    <p>
+      Some witnesses claim she occasionally behaves like a dog under emotional stress conditions.
+    </p>
   </section>
 
-  <section class="chapter reveal">
-    <h1>CAPÍTULO FINAL</h1>
-    <p>20 de junio de 2027 — El evento comienza</p>
+  <!-- 👨‍👩‍👧 FAMILY -->
+  <section class="family reveal">
+    <h2>Family</h2>
+    <p>Ariella & Valentina made this event possible.</p>
+    <p>Amy has a legendary head size (scientifically documented phenomenon).</p>
   </section>
+
+  <!-- ✈️ TRAVEL -->
+  <section class="travel reveal">
+    <h2>Travel</h2>
+    <p>Flights may or may not be covered depending on how nicely you ask.</p>
+  </section>
+
+  <!-- 🤠 DRESS CODE -->
+  <section class="dress reveal">
+    <h2>Dress Code</h2>
+    <p>Mexican Cowboy Elegant 🤠</p>
+  </section>
+
+  <!-- 🎁 GIFTS -->
+  <section class="gift reveal">
+    <h2>Gifts</h2>
+    <p>Your presence is the best gift 💗</p>
+    <p>[Gift link coming soon]</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer onclick="secret()">
+    Made with 💗 for Daniela
+  </footer>
 
 </div>
 
