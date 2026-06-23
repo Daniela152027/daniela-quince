@@ -7,8 +7,8 @@ function openInvite(){
 
     startPetals();
     revealOnScroll();
-    startMusic();
     startCountdown();
+    startMusic();
   },600);
 }
 
@@ -62,19 +62,28 @@ function revealOnScroll(){
 
 /* ⏱ COUNTDOWN */
 function startCountdown(){
-  const targetDate=new Date("June 20, 2027 15:00:00").getTime();
+  const targetDate = new Date("June 20, 2027 15:00:00").getTime();
 
-  setInterval(()=>{
-    const now=new Date().getTime();
-    const diff=targetDate-now;
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
 
-    const days=Math.floor(diff/(1000*60*60*24));
-
-    const timer=document.getElementById("timer");
-    if(timer){
-      timer.innerHTML=days + " días 💗";
+    if (diff <= 0) {
+      document.getElementById("timer").innerHTML = "¡Hoy es el gran día! 💖";
+      return;
     }
-  },1000);
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    const timer = document.getElementById("timer");
+    if (timer) {
+      timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+  }, 1000);
 }
 
 /* 😂 EASTER EGG */
