@@ -88,3 +88,7 @@ body {
   cursor:pointer;
   z-index:999;
 }
+
+#envelope-screen {
+  z-index: 1000;
+}
