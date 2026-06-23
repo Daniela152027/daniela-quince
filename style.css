@@ -5,14 +5,13 @@ body {
   overflow-x:hidden;
 }
 
-/* 💌 ENVELOPE */
+/* 💌 ENVELOPE SCREEN */
 #envelope-screen{
   height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   background: radial-gradient(circle,#ffd6e7,#fff);
-  transition:0.6s;
 }
 
 .envelope{
@@ -23,16 +22,42 @@ body {
   text-align:center;
   cursor:pointer;
   box-shadow:0 20px 60px rgba(0,0,0,0.2);
+  max-width:500px;
 }
 
-/* 💖 MAIN */
+/* SMALL TEXT */
+.small{
+  font-size:12px;
+  opacity:0.7;
+  margin-top:10px;
+}
+
+/* ⚠ WARNING BOX */
+.warning-box{
+  margin-top:15px;
+  padding:12px;
+  border:2px dashed #d36aa5;
+  border-radius:12px;
+  background:#fff0f6;
+  font-size:12px;
+  color:#a3004c;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1); opacity:0.8;}
+  50%{transform:scale(1.03); opacity:1;}
+  100%{transform:scale(1); opacity:0.8;}
+}
+
+/* 💖 MAIN CONTENT */
 #main-content{
   display:none;
   padding:20px;
   text-align:center;
 }
 
-/* 📸 GALLERY */
+/* 📸 IMAGES */
 .gallery img{
   width:220px;
   margin:10px;
@@ -56,8 +81,8 @@ body {
 .petal{
   position:fixed;
   top:-20px;
-  font-size:18px;
   animation: fall linear forwards;
+  font-size:18px;
 }
 
 @keyframes fall{
@@ -77,4 +102,11 @@ body {
   border-radius:20px;
   cursor:pointer;
   z-index:999;
+}
+
+/* ⏱ COUNTDOWN */
+#timer{
+  font-size:28px;
+  font-weight:bold;
+  color:#d36aa5;
 }
