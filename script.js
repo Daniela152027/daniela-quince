@@ -1,29 +1,47 @@
-// OPEN ENVELOPE
-function openInvite() {
-  document.getElementById("envelope-screen").style.display = "none";
-  document.getElementById("main-content").style.display = "block";
+function openInvite(){
+  document.getElementById("envelope-screen").style.display="none";
+  document.getElementById("main-content").style.display="block";
 
-  // try to play music (browser may require click)
-  const music = document.getElementById("music");
-  if (music) {
-    music.play().catch(() => {
-      console.log("Autoplay blocked");
-    });
-  }
+  startMusic();
+  startPetals();
+  revealOnScroll();
 }
 
-// COUNTDOWN
-const eventDate = new Date("June 20, 2027 15:00:00").getTime();
+function toggleMusic(){
+  document.getElementById("music").play();
+}
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = eventDate - now;
+function startMusic(){
+  let m=document.getElementById("music");
+  m.volume=0.5;
+  m.play().catch(()=>{});
+}
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
+/* PETALS */
+function startPetals(){
+  setInterval(()=>{
+    let p=document.createElement("div");
+    p.className="petal";
+    p.innerHTML="🌸";
+    p.style.left=Math.random()*window.innerWidth+"px";
+    p.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),6000);
+  },200);
+}
 
-  document.getElementById("timer").innerHTML =
-    `${days}d ${hours}h ${minutes}m ${seconds}s 💗`;
-}, 1000);
+/* SCROLL ANIMATION */
+function revealOnScroll(){
+  const elements=document.querySelectorAll(".reveal");
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting)e.target.classList.add("show");
+    });
+  });
+  elements.forEach(el=>observer.observe(el));
+}
+
+/* EASTER EGG */
+function secret(){
+  alert("Daniela te está observando 👀");
+}
